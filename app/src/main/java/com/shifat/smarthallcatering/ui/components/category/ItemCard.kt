@@ -1,5 +1,4 @@
-package com.shifat.smarthallcatering.components
-
+package com.shifat.smarthallcatering.ui.components.category
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -17,10 +16,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun ItemCard(modifier: Modifier = Modifier, title: String, desc: String, price: Int, image: Painter) {
+fun ItemCards(title: String, desc: String, price: Int, image: Painter, modifier: Modifier=Modifier) {
+
         Row(
             modifier = Modifier.padding(
                 bottom =  10.dp,
+                start = 5.dp,
                 top = 5.dp
             )
         ){
