@@ -9,7 +9,7 @@ data class Provider(
     val username: String = "",
     val password: String = "",
     /* Contains all customers, second value is true if customer is validated by Provider */
-    // val validCustomers: Pair<Customer,Boolean>? = null,
+    val validCustomers: Pair<Customer,Boolean>? = null,
     val categories: List<Category>,
     // val orderList: List<Order>? = null
 )

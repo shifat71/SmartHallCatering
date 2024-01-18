@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import com.shifat.smarthallcatering.data.DataSource
 import com.shifat.smarthallcatering.model.user.Provider
 import com.shifat.smarthallcatering.ui.components.ShopSummaryCard
-import com.shifat.smarthallcatering.ui.components.category.CategoryCards
+import com.shifat.smarthallcatering.ui.components.category.CategoryCard
 
 @Composable
 fun ProviderHomeScreen(provider: Provider){
@@ -36,7 +36,11 @@ fun ProviderHomeScreen(provider: Provider){
                             .padding(top = 20.dp)
                             .clickable {
                                 /*
-                                 To Do
+                                1.Will Navigate to Edit Category Page
+                                2. Will Update State of Edit Category
+                                3. A submit button after editing is done
+                                4. Submit button will call a function that will add the data from firebase
+
                                  */
                             }
                     )
@@ -44,7 +48,7 @@ fun ProviderHomeScreen(provider: Provider){
             }
             items(provider.categories)
             {
-                category -> CategoryCards(
+                category -> CategoryCard(
                 modifier= Modifier,
                 name = category.name,
                 foodItems = category.items

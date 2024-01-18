@@ -12,6 +12,7 @@ object DataSource {
 
 
     /* To Do - Functions for Bipul
+
     1. Customer & Provider Registration and Login
     2. Retrieve All Categories for a Customer
     3. Retrieve All Items Inside a Category
@@ -68,5 +69,7 @@ object DataSource {
         order, order, order,order, order, order,order, order, order,order, order, order,
         order, order, order,order, order, order,order, order, order,order, order, order,
         order, order, order,order, order, order,order, order, order,order, order, order,)
+
+
 
 }

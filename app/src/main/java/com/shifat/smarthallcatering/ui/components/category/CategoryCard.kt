@@ -16,7 +16,12 @@ import com.shifat.smarthallcatering.model.FoodItem
 
 
 @Composable
-fun CategoryCards(modifier: Modifier= Modifier, name: String, foodItems: List<FoodItem> )
+fun CategoryCard(
+    modifier: Modifier= Modifier,
+    name: String,
+    foodItems: List<FoodItem>,
+    onItemCardClick: ( itemId: Int) -> Unit = { itemId -> }
+)
 {
         Column{
 
@@ -37,10 +42,8 @@ fun CategoryCards(modifier: Modifier= Modifier, name: String, foodItems: List<Fo
                     price = item.price,
                     image = painterResource(id = item.image),
                     modifier.clickable {
-                        /* To Do
-                        Navigate to:
-                         PurchaseCard(item)
-                         */
+                        // Navigate to: PurchaseCard(item)
+                        onItemCardClick(item.id)
                     }
                 )
                    Divider()
@@ -53,5 +56,5 @@ fun CategoryCards(modifier: Modifier= Modifier, name: String, foodItems: List<Fo
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun Prev(){
-    CategoryCards(name = "Category Name", foodItems = DataSource.foodItems)
+    CategoryCard(name = "Category Name", foodItems = DataSource.foodItems )
 }

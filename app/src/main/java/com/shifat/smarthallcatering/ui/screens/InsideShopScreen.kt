@@ -8,13 +8,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.shifat.smarthallcatering.data.DataSource
 import com.shifat.smarthallcatering.model.user.Provider
 import com.shifat.smarthallcatering.ui.components.ShopSummaryCard
-import com.shifat.smarthallcatering.ui.components.category.CategoryCards
+import com.shifat.smarthallcatering.ui.components.category.CategoryCard
 
 @Composable
-fun InsideShopScreen(modifier: Modifier = Modifier, provider: Provider) {
+fun InsideShopScreen(
+    modifier: Modifier = Modifier,
+    provider: Provider,
+    onItemCardClick: (categoryId: Int, itemId:Int) -> Unit = { categoryId, itemId -> }
+    ) {
 
             LazyColumn {
                 item{
@@ -25,21 +28,20 @@ fun InsideShopScreen(modifier: Modifier = Modifier, provider: Provider) {
                 }
                 items(provider.categories)
                 {
-                    category -> CategoryCards(
+                    category -> CategoryCard(
                     modifier= Modifier,
                     name = category.name,
-                    foodItems = category.items
-                )
+                    foodItems = category.items){
+                        itemId -> onItemCardClick(category.id, itemId)
+                }
                     Divider( Modifier.height(3.dp) )
-
+                }
                 }
             }
-        }
-
 
 
 @Preview(showBackground = true)
 @Composable
 fun InsideShopScreenPreview(){
-    InsideShopScreen(provider = DataSource.provider)
+    //InsideShopScreen(provider = DataSource.provider)
 }

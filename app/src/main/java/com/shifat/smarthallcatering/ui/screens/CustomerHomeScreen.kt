@@ -1,6 +1,7 @@
 package com.shifat.smarthallcatering.ui.screens
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -21,62 +22,80 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.shifat.smarthallcatering.data.DataSource
 import com.shifat.smarthallcatering.model.user.Customer
+import com.shifat.smarthallcatering.model.user.Provider
 
 @Composable
-fun CustomerHomeScreen(customer: Customer) {
-
+fun CustomerHomeScreen(
+    customer: Customer,
+    onHallSelectButton: (Int) -> Unit
+    ) {
     Column {
         Text(
             text = "Hi, ${customer.firstName} !",
             fontSize = 30.sp,
-            modifier = Modifier.align(Alignment.CenterHorizontally).padding(5.dp),
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(5.dp),
             color = Color.Blue
         )
-
-         LazyColumn{
-             item{
-                 Text(
-                     text = "Subscribed Providers",
-                     fontSize = 35.sp,
-                     fontWeight = FontWeight.Bold,
-                     color = Color.DarkGray,
-                     modifier = Modifier.padding(5.dp)
-                 )
-             }
-
-             items(customer.subscribedProviders){
-                 provider ->
-                 Column(
-                     modifier = Modifier.padding(
-                         10.dp
-                     )
-                 ) {
-                     Text(
-                         text = provider.name,
-                         fontSize = 30.sp,
-                         modifier = Modifier.padding(
-                          bottom = 10.dp
-                         )
-                     )
-                     Image(
-                         painter = painterResource(id = provider.image),
-                         contentDescription = null,
-                         contentScale = ContentScale.Crop,
-                         modifier = Modifier.size(
-                             395.dp,
-                             150.dp
-                         ).clip(RoundedCornerShape(15.dp))
-                     )
-                 }
-             }
-         }
-
+        HallListCard(
+            subscribedProviders = customer.subscribedProviders,
+            onHallSelectButton
+            )
     }
+}
 
+@Composable
+fun HallListCard(
+    subscribedProviders: List<Provider>,
+    onClick: (Int) -> Unit
+    ){
+    LazyColumn{
+        item{
+            Text(
+                text = "Subscribed Providers",
+                fontSize = 35.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color.DarkGray,
+                modifier = Modifier.padding(5.dp)
+            )
+        }
+
+        items(subscribedProviders){
+                provider ->
+            Column(
+                modifier = Modifier.padding(
+                    10.dp
+                ).clickable {
+                    // To know, which hall to navigate
+                   onClick(provider.id)
+                }
+            ) {
+                Text(
+                    text = provider.name,
+                    fontSize = 30.sp,
+                    modifier = Modifier.padding(
+                        bottom = 10.dp
+                    )
+                )
+                Image(
+                    painter = painterResource(id = provider.image),
+                    contentDescription = null,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .size(
+                            395.dp,
+                            150.dp
+                        )
+                        .clip(RoundedCornerShape(15.dp))
+                )
+            }
+        }
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun CustomerHomeScreenPreview(){
-    CustomerHomeScreen(DataSource.customer)
+    CustomerHomeScreen(DataSource.customer, onHallSelectButton = {})
 }
