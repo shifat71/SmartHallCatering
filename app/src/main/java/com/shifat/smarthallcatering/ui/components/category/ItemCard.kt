@@ -16,10 +16,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun ItemCards(title: String, desc: String, price: Int, image: Painter, modifier: Modifier=Modifier) {
+fun ItemCard(title: String, desc: String, price: Int, image: Painter, modifier: Modifier=Modifier) {
 
         Row(
-            modifier = Modifier.padding(
+            modifier = modifier.padding(
                 bottom =  10.dp,
                 start = 5.dp,
                 top = 5.dp

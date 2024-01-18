@@ -24,13 +24,17 @@ import com.shifat.smarthallcatering.R
 
 
 @Composable
-fun OrderCard(price: Int) {
+fun OrderCard(
+    modifier: Modifier = Modifier,
+    price: Int,
+    onOrderButtonClicked: () -> Unit = {}
+) {
 
     var foodQuantity by remember { mutableIntStateOf(1) }
     
     Divider()
     Column(
-        Modifier.padding(
+        modifier = modifier.padding(
             top = 5.dp,
             start = 10.dp,
             bottom = 10.dp
@@ -74,10 +78,12 @@ fun OrderCard(price: Int) {
                }
 
            }
-        Button(onClick = { /*TODO*/ },
-            Modifier.padding(start = 120.dp)
+        Button(
+            modifier = Modifier.padding(start = 120.dp),
+            onClick = onOrderButtonClicked
         ) {
-            Text(text = "Order")}
+            Text(text = "Order")
+        }
 
 
     }
@@ -87,5 +93,5 @@ fun OrderCard(price: Int) {
 @Preview(showBackground = true)
 @Composable
 fun OrderCardPreview(){
-    OrderCard( 10)
+    OrderCard( Modifier,10)
 }

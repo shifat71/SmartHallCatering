@@ -36,13 +36,12 @@ fun CategoryCard(
                 )
 
             for(item in foodItems){
-                ItemCards(
+                ItemCard(
                     title = item.title,
                     desc= item.desc,
                     price = item.price,
                     image = painterResource(id = item.image),
-                    modifier.clickable {
-                        // Navigate to: PurchaseCard(item)
+                    modifier = Modifier.clickable{
                         onItemCardClick(item.id)
                     }
                 )

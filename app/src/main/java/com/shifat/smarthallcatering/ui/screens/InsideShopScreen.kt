@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.shifat.smarthallcatering.data.DataSource
 import com.shifat.smarthallcatering.model.user.Provider
 import com.shifat.smarthallcatering.ui.components.ShopSummaryCard
 import com.shifat.smarthallcatering.ui.components.category.CategoryCard
@@ -43,5 +44,5 @@ fun InsideShopScreen(
 @Preview(showBackground = true)
 @Composable
 fun InsideShopScreenPreview(){
-    //InsideShopScreen(provider = DataSource.provider)
+    InsideShopScreen(provider = DataSource.provider)
 }

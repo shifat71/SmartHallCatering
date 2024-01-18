@@ -1,4 +1,4 @@
-package com.shifat.smarthallcatering.ui.screens
+package com.shifat.smarthallcatering.ui.components.category
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -24,7 +24,7 @@ import com.shifat.smarthallcatering.model.FoodItem
 
 
 @Composable
-fun ItemDetailsScreen(modifier: Modifier = Modifier, foodItem: FoodItem) {
+fun ItemDetailsCard(modifier: Modifier = Modifier, foodItem: FoodItem) {
 
     LazyColumn(modifier) {
         item {
@@ -90,5 +90,5 @@ fun ItemDetailsScreen(modifier: Modifier = Modifier, foodItem: FoodItem) {
 @Preview(showBackground = true)
 @Composable
 fun ItemD() {
-    ItemDetailsScreen(foodItem = DataSource.foodItem)
+    ItemDetailsCard(foodItem = DataSource.foodItem)
 }

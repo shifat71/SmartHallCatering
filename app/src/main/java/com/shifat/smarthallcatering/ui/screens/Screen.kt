@@ -4,8 +4,9 @@ enum class Screen() {
     CustomerHomeScreen(),
     InsideShopScreen(),
     ProviderHomeScreen(),
-    ItemDetailsScreen(),
+    OrderItemScreen(),
     OrderListScreen(),
     EditCategoryScreen(),
-    EditItemScreen()
+    EditItemScreen(),
+    OrderCompleteScreen()
 }
