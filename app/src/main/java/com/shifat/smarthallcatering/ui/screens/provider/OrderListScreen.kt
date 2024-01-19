@@ -1,4 +1,4 @@
-package com.shifat.smarthallcatering.ui.screens
+package com.shifat.smarthallcatering.ui.screens.provider
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row

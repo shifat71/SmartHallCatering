@@ -1,4 +1,4 @@
-package com.shifat.smarthallcatering.ui.screens
+package com.shifat.smarthallcatering.ui.screens.provider
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue

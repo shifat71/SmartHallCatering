@@ -36,3 +36,11 @@ fun currentUser() : Customer {
      */
     return DataSource.customer
 }
+
+fun findOrderListByCustomerId() : List<Order> {
+    return DataSource.orderList
+}
+
+fun findOrderById(): Order {
+    return DataSource.order
+}

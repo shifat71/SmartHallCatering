@@ -27,6 +27,8 @@ fun createOrder(
         customerId = customerId,
         otp = otp
     )
+
+    // Save the Order to Firebase
     saveOrder(order)
     return order
 }

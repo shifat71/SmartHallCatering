@@ -1,6 +1,5 @@
 package com.shifat.smarthallcatering
 
-import android.util.Log
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -16,11 +15,12 @@ import com.shifat.smarthallcatering.data.remote.currentUser
 import com.shifat.smarthallcatering.data.remote.findCustomerById
 import com.shifat.smarthallcatering.data.remote.findFoodItemById
 import com.shifat.smarthallcatering.data.remote.findProviderById
-import com.shifat.smarthallcatering.ui.screens.CustomerHomeScreen
-import com.shifat.smarthallcatering.ui.screens.InsideShopScreen
-import com.shifat.smarthallcatering.ui.screens.OrderCompleteScreen
-import com.shifat.smarthallcatering.ui.screens.OrderItemScreen
+import com.shifat.smarthallcatering.data.remote.generateOTP
 import com.shifat.smarthallcatering.ui.screens.Screen
+import com.shifat.smarthallcatering.ui.screens.customer.CustomerHomeScreen
+import com.shifat.smarthallcatering.ui.screens.customer.InsideShopScreen
+import com.shifat.smarthallcatering.ui.screens.customer.OrderCompleteScreen
+import com.shifat.smarthallcatering.ui.screens.customer.OrderItemScreen
 
 @Composable
 fun Navigation(
@@ -99,8 +99,8 @@ fun Navigation(
 
         composable(route = Screen.OrderCompleteScreen.name){
             OrderCompleteScreen(
+                otp = generateOTP(6),
                 onMoreItems = {
-                    Log.d("shona shoan","haha")
                     navController.popBackStack()
                     navController.popBackStack()
                 }

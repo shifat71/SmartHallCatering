@@ -59,17 +59,27 @@ object DataSource {
         Provider(name="Second Ladies Hall", categories = categories, image = hallImage)
     )
 
-    val customer = Customer(
-        firstName = "Shifat",
-        lastName = "Rahman",
-        subscribedProviders = providers
-        )
-    val order = Order(item = foodItem, quantity = 5)
-    val orderList = listOf( order, order, order,order, order, order,order, order, order,order, order, order,
+
+    val order = Order(item = foodItem, quantity = 5, cost = 400, otp = "124245", providerName = "Shahporan Hall",
+        deliveredOn = System.currentTimeMillis() )
+
+    val order1 = Order(
+        item = foodItem, quantity = 5, cost = 400, otp = "124245", providerName = "Shahporan Hall",
+        isDelivered = true,
+        deliveryDate = System.currentTimeMillis()
+    )
+
+    val orderList = listOf( order, order1, order,order, order, order,order, order, order,order, order, order,
         order, order, order,order, order, order,order, order, order,order, order, order,
         order, order, order,order, order, order,order, order, order,order, order, order,
         order, order, order,order, order, order,order, order, order,order, order, order,)
 
+    val customer = Customer(
+        firstName = "Shifat",
+        lastName = "Rahman",
+        subscribedProviders = providers,
+        orders = orderList
+    )
 
 
 }

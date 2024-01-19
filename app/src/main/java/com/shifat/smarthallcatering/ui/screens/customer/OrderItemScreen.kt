@@ -1,4 +1,4 @@
-package com.shifat.smarthallcatering.ui.screens
+package com.shifat.smarthallcatering.ui.screens.customer
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable

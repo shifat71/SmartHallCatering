@@ -1,4 +1,4 @@
-package com.shifat.smarthallcatering.ui.screens
+package com.shifat.smarthallcatering.ui.screens.customer
 
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.LazyColumn

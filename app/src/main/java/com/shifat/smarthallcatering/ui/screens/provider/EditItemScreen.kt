@@ -1,4 +1,4 @@
-package com.shifat.smarthallcatering.ui.screens
+package com.shifat.smarthallcatering.ui.screens.provider
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Button
