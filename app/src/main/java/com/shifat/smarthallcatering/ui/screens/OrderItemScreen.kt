@@ -12,7 +12,7 @@ import com.shifat.smarthallcatering.ui.components.purchase.OrderCard
 @Composable
 fun OrderItemScreen(
     modifier: Modifier = Modifier,
-    onOrderButtonClicked: () -> Unit = {},
+    onOrderButtonClicked: (quantity: Int) -> Unit = {},
     foodItem : FoodItem) {
 
     Column(modifier){

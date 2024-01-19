@@ -11,6 +11,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.shifat.smarthallcatering.data.remote.createOrder
+import com.shifat.smarthallcatering.data.remote.currentUser
 import com.shifat.smarthallcatering.data.remote.findCustomerById
 import com.shifat.smarthallcatering.data.remote.findFoodItemById
 import com.shifat.smarthallcatering.data.remote.findProviderById
@@ -79,16 +81,23 @@ fun Navigation(
             val providerId = backStackEntry.arguments?.getInt("categoryId") ?: 0
             val categoryId = backStackEntry.arguments?.getInt("categoryId") ?: 0
             val itemId = backStackEntry.arguments?.getInt("itemId") ?: 0
+            val customerId = currentUser().id
             val foodItem = findFoodItemById(providerId, categoryId, itemId)
             OrderItemScreen(
                 foodItem = foodItem,
                 onOrderButtonClicked = {
+                    quantity ->
+                    createOrder(
+                        quantity = quantity,
+                        item = foodItem,
+                        customerId = customerId
+                    )
                     navController.navigate(Screen.OrderCompleteScreen.name)
-                })
+                }
+            )
         }
 
         composable(route = Screen.OrderCompleteScreen.name){
-            backStackEntry ->
             OrderCompleteScreen(
                 onMoreItems = {
                     Log.d("shona shoan","haha")
@@ -108,6 +117,6 @@ fun Prev() {
         customer = findCustomerById(0),
         // Get a Category ID as a callback
         onHallSelectButton = {
-                categoryId -> }
+        }
     )
 }

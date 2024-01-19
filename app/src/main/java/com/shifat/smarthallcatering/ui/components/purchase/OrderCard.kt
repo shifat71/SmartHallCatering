@@ -27,10 +27,10 @@ import com.shifat.smarthallcatering.R
 fun OrderCard(
     modifier: Modifier = Modifier,
     price: Int,
-    onOrderButtonClicked: () -> Unit = {}
+    onOrderButtonClicked: (quantity: Int) -> Unit = { }
 ) {
 
-    var foodQuantity by remember { mutableIntStateOf(1) }
+    var quanitity by remember { mutableIntStateOf(1) }
     
     Divider()
     Column(
@@ -45,7 +45,7 @@ fun OrderCard(
 
            Row(Modifier.padding(15.dp)) {
                Text(
-                   text ="Total:     ${foodQuantity*price} Tk.",
+                   text ="Total:     ${quanitity*price} Tk.",
                    fontSize = 20.sp,
                    fontWeight = FontWeight.Bold
                )
@@ -59,11 +59,11 @@ fun OrderCard(
                    Image(
                        painter = painterResource(id = R.drawable.add),
                        contentDescription = null,
-                       Modifier.clickable { foodQuantity++ }.size(30.dp)
+                       Modifier.clickable { quanitity++ }.size(30.dp)
                    )
 
                    Text(
-                       text = foodQuantity.toString(),
+                       text = quanitity.toString(),
                        Modifier.padding(start = 20.dp, end = 20.dp),
                        fontSize = 20.sp
                    )
@@ -72,7 +72,7 @@ fun OrderCard(
                        painter = painterResource(id = R.drawable.minus),
                        contentDescription = null,
                        Modifier.clickable {
-                           if(foodQuantity>1) foodQuantity-- }.size(30.dp)
+                           if(quanitity>1) quanitity-- }.size(30.dp)
                    )
 
                }
@@ -80,7 +80,7 @@ fun OrderCard(
            }
         Button(
             modifier = Modifier.padding(start = 120.dp),
-            onClick = onOrderButtonClicked
+            onClick = { onOrderButtonClicked(quanitity) }
         ) {
             Text(text = "Order")
         }

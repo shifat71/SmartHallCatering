@@ -9,6 +9,7 @@ data class Order(
     val cost: Int=0,
     val isDelivered: Boolean=false,
     val date: Timestamp?=null,
+    val otp: String = "",
     val customerId: Int=0,
     val providerId: Int=0,
 )
