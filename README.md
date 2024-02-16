@@ -1,0 +1,1 @@
+An android app to manage the dining of hall at universities. Student can order the meals for the next day, authority can prepare food according to the orders list. This way, wastage of excess food can be minimized and student can avoid the long queue of waiting for the meal.
