@@ -118,7 +118,7 @@ fun provideColor(isDelivered: Boolean) : Color {
     return Color.LightGray
 }
 
-@Preview(showBackground = true, showSystemUi = false)
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun CustomerOderListScreenPreview(){
     OrderHistoryScreen(orders = DataSource.orderList)

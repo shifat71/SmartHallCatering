@@ -61,7 +61,7 @@ fun OrderCompleteScreen(
   }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun OrderCompleteScreenPreview(){
    OrderCompleteScreen()

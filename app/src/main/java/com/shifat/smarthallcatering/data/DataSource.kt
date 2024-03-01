@@ -30,7 +30,8 @@ object DataSource {
     val price = 30;
     val image = R.drawable.foodpic
     val hallImage = R.drawable.shahporan
-
+    val firstLadiesImage = R.drawable.first_ladies_hall
+    val mujtabaAliImage = R.drawable.mujtaba_ali_hall
     val foodItem = FoodItem(title = title, desc = desc, price =  price, image = image)
     val foodItems = listOf(
         FoodItem(title = title, desc = desc, price =  price, image = image),
@@ -53,9 +54,9 @@ object DataSource {
 
     val providers = listOf(
         Provider(name="Bangabandhu Hall", categories = categories, image = hallImage),
-        Provider(name="Syed Mustaba Ali Hall", categories = categories, image = image),
+        Provider(name="Syed Mujtaba Ali Hall", categories = categories, image = mujtabaAliImage),
+        Provider(name="First Ladies Hall", categories = categories, image = firstLadiesImage),
         Provider(name="Shahporan Hall", categories = categories, image = hallImage),
-        Provider(name="First Ladies Hall", categories = categories, image = image),
         Provider(name="Second Ladies Hall", categories = categories, image = hallImage)
     )
 
