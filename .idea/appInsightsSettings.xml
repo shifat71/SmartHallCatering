@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.shifat.smarthallcatering" />
+                  <option name="mobileSdkAppId" value="1:945275224875:android:a5655fe06aabee8cd87b6e" />
+                  <option name="projectId" value="hallcatering" />
+                  <option name="projectNumber" value="945275224875" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

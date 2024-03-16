@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "945275224875",
+    "project_id": "hallcatering",
+    "storage_bucket": "hallcatering.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:945275224875:android:a5655fe06aabee8cd87b6e",
+        "android_client_info": {
+          "package_name": "com.shifat.smarthallcatering"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJAQpGKL48q9UU11JfRUWY6mrZHVpIpus"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

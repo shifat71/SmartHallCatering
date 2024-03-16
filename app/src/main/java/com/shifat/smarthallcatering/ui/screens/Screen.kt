@@ -8,5 +8,7 @@ enum class Screen() {
     OrderListScreen(),
     EditCategoryScreen(),
     EditItemScreen(),
+    LoginScreen(),
+    SignUpScreen(),
     OrderCompleteScreen()
 }

@@ -76,9 +76,7 @@ object DataSource {
         order, order, order,order, order, order,order, order, order,order, order, order,)
 
     val customer = Customer(
-        firstName = "Shifat",
-        lastName = "Rahman",
-        subscribedProviders = providers,
+        name = "Shifat",
         orders = orderList
     )
 

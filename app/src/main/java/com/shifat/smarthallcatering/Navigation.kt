@@ -16,7 +16,10 @@ import com.shifat.smarthallcatering.data.remote.findCustomerById
 import com.shifat.smarthallcatering.data.remote.findFoodItemById
 import com.shifat.smarthallcatering.data.remote.findProviderById
 import com.shifat.smarthallcatering.data.remote.generateOTP
+import com.shifat.smarthallcatering.ui.auth.AuthViewModel
+import com.shifat.smarthallcatering.ui.screens.LoginScreen
 import com.shifat.smarthallcatering.ui.screens.Screen
+import com.shifat.smarthallcatering.ui.screens.SignUpScreen
 import com.shifat.smarthallcatering.ui.screens.customer.CustomerHomeScreen
 import com.shifat.smarthallcatering.ui.screens.customer.InsideShopScreen
 import com.shifat.smarthallcatering.ui.screens.customer.OrderCompleteScreen
@@ -24,15 +27,26 @@ import com.shifat.smarthallcatering.ui.screens.customer.OrderItemScreen
 
 @Composable
 fun Navigation(
+    viewModel: AuthViewModel,
     navController: NavHostController = rememberNavController()
 ) {
 
 
     NavHost(
         navController = navController,
-        startDestination = "${Screen.CustomerHomeScreen.name}/0",  // Customer? CustomerHomeScreen : ProviderHomeScreen
+        startDestination = Screen.LoginScreen.name,  // Customer? CustomerHomeScreen : ProviderHomeScreen
         modifier = Modifier.fillMaxSize()
     ) {
+
+        composable(route = Screen.LoginScreen.name){
+            LoginScreen(viewModel, navController)
+        }
+
+        composable(route = Screen.SignUpScreen.name){
+             SignUpScreen(viewModel, navController)
+        }
+
+
 
         composable(
             route="${Screen.CustomerHomeScreen.name}/{customerId}",
