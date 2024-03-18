@@ -3,21 +3,19 @@ package com.shifat.smarthallcatering
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.viewModels
-import com.shifat.smarthallcatering.ui.auth.AuthViewModel
+import androidx.compose.material.ExperimentalMaterialApi
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    private val viewModel by viewModels<AuthViewModel>()
+    @OptIn(ExperimentalMaterialApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-
-
+            SmartHallCateringApp()
             //EditCategoryScreen(category = DataSource.category, onAddProduct = {});
-        Navigation(viewModel = viewModel)
+//        Navigation(viewModel = viewModel)
 
         // OrderItemScreen(foodItem = DataSource.foodItem)
         //   OrderListScreen(orderList = DataSource.orderList)

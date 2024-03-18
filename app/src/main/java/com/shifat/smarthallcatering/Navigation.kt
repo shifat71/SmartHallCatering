@@ -17,10 +17,10 @@ import com.shifat.smarthallcatering.data.remote.findFoodItemById
 import com.shifat.smarthallcatering.data.remote.findProviderById
 import com.shifat.smarthallcatering.data.remote.generateOTP
 import com.shifat.smarthallcatering.ui.auth.AuthViewModel
-import com.shifat.smarthallcatering.ui.screens.LoginScreen
+import com.shifat.smarthallcatering.ui.screens.login.LoginScreen
 import com.shifat.smarthallcatering.ui.screens.Screen
-import com.shifat.smarthallcatering.ui.screens.SignUpScreen
-import com.shifat.smarthallcatering.ui.screens.customer.CustomerHomeScreen
+import com.shifat.smarthallcatering.ui.screens.signup.SignUpScreen
+import com.shifat.smarthallcatering.ui.screens.customer.CustomerHomeScreen.CustomerHomeScreen
 import com.shifat.smarthallcatering.ui.screens.customer.InsideShopScreen
 import com.shifat.smarthallcatering.ui.screens.customer.OrderCompleteScreen
 import com.shifat.smarthallcatering.ui.screens.customer.OrderItemScreen
@@ -38,32 +38,32 @@ fun Navigation(
         modifier = Modifier.fillMaxSize()
     ) {
 
-        composable(route = Screen.LoginScreen.name){
-            LoginScreen(viewModel, navController)
-        }
+//        composable(route = Screen.LoginScreen.name){
+//            LoginScreen(viewModel, navController)
+//        }
+//
+//        composable(route = Screen.SignUpScreen.name){
+//             SignUpScreen(viewModel, navController)
+//        }
 
-        composable(route = Screen.SignUpScreen.name){
-             SignUpScreen(viewModel, navController)
-        }
 
 
-
-        composable(
-            route="${Screen.CustomerHomeScreen.name}/{customerId}",
-            arguments = listOf( navArgument("customerId"){ type = NavType.IntType} )
-        ){
-            backStackEntry ->
-            val customerId = backStackEntry.arguments?.getInt("customerId") ?: 0
-            val customer = findCustomerById(customerId)
-            CustomerHomeScreen(
-                customer = customer,
-                // Get a Category ID as a callback
-                onHallSelectButton = {
-                    categoryId ->
-                    val navigationPath = "${Screen.InsideShopScreen.name}/$categoryId"
-                    navController.navigate(navigationPath) }
-                )
-        }
+//        composable(
+//            route="${Screen.CustomerHomeScreen.name}/{customerId}",
+//            arguments = listOf( navArgument("customerId"){ type = NavType.IntType} )
+//        ){
+//            backStackEntry ->
+//            val customerId = backStackEntry.arguments?.getInt("customerId") ?: 0
+//            val customer = findCustomerById(customerId)
+//            CustomerHomeScreen(
+//                customer = customer,
+//                // Get a Category ID as a callback
+//                onHallSelectButton = {
+//                    categoryId ->
+//                    val navigationPath = "${Screen.InsideShopScreen.name}/$categoryId"
+//                    navController.navigate(navigationPath) }
+//                )
+//        }
 
         composable(
             route = "${Screen.InsideShopScreen.name}/{providerId}",

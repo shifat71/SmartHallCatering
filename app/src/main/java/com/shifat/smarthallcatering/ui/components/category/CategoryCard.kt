@@ -19,7 +19,7 @@ fun CategoryCard(
     modifier: Modifier= Modifier,
     name: String,
     foodItems: List<FoodItem>,
-    onItemCardClick: ( itemId: Int) -> Unit = { itemId -> }
+    onItemCardClick: ( itemId: String) -> Unit = { itemId -> }
 )
 {
         Column{

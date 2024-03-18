@@ -1,11 +1,13 @@
 package com.shifat.smarthallcatering.model
 
+import com.google.firebase.firestore.DocumentId
+
 data class FoodItem(
-    val id: Int = 0,
-    val title:String,
-    val desc: String,
-    val price: Int,
-    val image: Int,
-    val providerId: Int = 0,
-    val categoryId: Int = 0
+    @DocumentId val id: String = "",
+    val title:String="",
+    val desc: String="",
+    val price: Int=0,
+    val image: String="",
+    val providerId: String ="",
+    val categoryId: String=""
 )

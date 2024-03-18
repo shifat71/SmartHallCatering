@@ -5,34 +5,6 @@ import com.shifat.smarthallcatering.model.Order
 import kotlin.random.Random
 
 
-fun createOrder(
-    quantity: Int,
-    item: FoodItem,
-    customerId: Int,
-): Order {
-
-    /* To Do
-    1. Will Call generateOTP()
-    2. Update the OTP to Order
-    3. Will Add The Order to Firebase
-     */
-    val price = item.price
-    val cost = price * quantity
-    val otp = generateOTP(6)
-    val order = Order(
-        quantity = quantity,
-        cost = cost,
-        item = item,
-        providerId = item.providerId,
-        customerId = customerId,
-        otp = otp
-    )
-
-    // Save the Order to Firebase
-    saveOrder(order)
-    return order
-}
-
 fun generateOTP(length: Int) : String {
 
         if (length <= 0) {

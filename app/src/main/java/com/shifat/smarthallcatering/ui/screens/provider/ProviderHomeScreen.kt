@@ -14,7 +14,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.shifat.smarthallcatering.data.DataSource
-import com.shifat.smarthallcatering.model.user.Provider
 import com.shifat.smarthallcatering.ui.components.ShopSummaryCard
 import com.shifat.smarthallcatering.ui.components.category.CategoryCard
 
@@ -27,7 +26,7 @@ fun ProviderHomeScreen(provider: Provider){
                 Column {
                     ShopSummaryCard(
                         shopName = provider.name,
-                        shopPicture = provider.image
+                        shopPicture = provider.imageUri
                     )
                     Text(
                         text = "Add a Category",

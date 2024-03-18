@@ -13,7 +13,7 @@ import com.shifat.smarthallcatering.model.FoodItem
 @Composable
 fun ItemsCard(
     foodItems: List<FoodItem>,
-    onItemCardClick: ( itemId: Int) -> Unit = { itemId -> }
+    onItemCardClick: ( itemId: String) -> Unit = { itemId -> }
 ) {
     Column {
 

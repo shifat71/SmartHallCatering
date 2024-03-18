@@ -4,8 +4,6 @@ import com.shifat.smarthallcatering.R
 import com.shifat.smarthallcatering.model.Category
 import com.shifat.smarthallcatering.model.FoodItem
 import com.shifat.smarthallcatering.model.Order
-import com.shifat.smarthallcatering.model.user.Customer
-import com.shifat.smarthallcatering.model.user.Provider
 import com.shifat.smarthallcatering.textGen
 
 object DataSource {
@@ -50,14 +48,14 @@ object DataSource {
         Category(name = "Category 2", items = foodItems)
     )
 
-    val provider = Provider(name="Shahporan Hall", categories = categories, image = hallImage)
+    val provider = Provider(name="Shahporan Hall", categories = categories)
 
     val providers = listOf(
-        Provider(name="Bangabandhu Hall", categories = categories, image = hallImage),
-        Provider(name="Syed Mujtaba Ali Hall", categories = categories, image = mujtabaAliImage),
-        Provider(name="First Ladies Hall", categories = categories, image = firstLadiesImage),
-        Provider(name="Shahporan Hall", categories = categories, image = hallImage),
-        Provider(name="Second Ladies Hall", categories = categories, image = hallImage)
+        Provider(name="Bangabandhu Hall", categories = categories),
+        Provider(name="Syed Mujtaba Ali Hall", categories = categories),
+        Provider(name="First Ladies Hall", categories = categories),
+        Provider(name="Shahporan Hall", categories = categories),
+        Provider(name="Second Ladies Hall", categories = categories)
     )
 
 

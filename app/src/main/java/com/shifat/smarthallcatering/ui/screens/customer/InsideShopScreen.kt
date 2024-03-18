@@ -9,7 +9,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.shifat.smarthallcatering.data.DataSource
-import com.shifat.smarthallcatering.model.user.Provider
 import com.shifat.smarthallcatering.ui.components.ShopSummaryCard
 import com.shifat.smarthallcatering.ui.components.category.CategoryCard
 
@@ -17,14 +16,14 @@ import com.shifat.smarthallcatering.ui.components.category.CategoryCard
 fun InsideShopScreen(
     modifier: Modifier = Modifier,
     provider: Provider,
-    onItemCardClick: (categoryId: Int, itemId:Int) -> Unit = { categoryId, itemId -> }
+    onItemCardClick: (categoryId: String, itemId: String) -> Unit = { categoryId, itemId -> }
     ) {
 
             LazyColumn {
                 item{
                     ShopSummaryCard(
                         shopName = provider.name,
-                        shopPicture = provider.image
+                        shopPicture = provider.imageUri
                     )
                 }
                 items(provider.categories)

@@ -1,5 +1,6 @@
 package com.shifat.smarthallcatering.ui.components
 
+import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -11,16 +12,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.shifat.smarthallcatering.data.DataSource
+import coil.compose.rememberAsyncImagePainter
 
 @Composable
 fun ShopSummaryCard(
     shopName: String,
-    shopPicture: Int
+    shopPicture: Uri
 ) {
     Column {
 
@@ -31,7 +31,7 @@ fun ShopSummaryCard(
         )
 
         Image(
-            painter = painterResource(id = shopPicture),
+            painter = rememberAsyncImagePainter(shopPicture),
             contentScale = ContentScale.Crop,
             contentDescription =null,
             modifier = Modifier.clip(RoundedCornerShape(20.dp)).
@@ -48,5 +48,5 @@ fun ShopSummaryCard(
 @Preview(showBackground = true)
 @Composable
 fun ShopSummaryCardPreview(){
-    ShopSummaryCard("Shahporan Hall",DataSource.hallImage)
+    //ShopSummaryCard("Shahporan Hall",null)
 }

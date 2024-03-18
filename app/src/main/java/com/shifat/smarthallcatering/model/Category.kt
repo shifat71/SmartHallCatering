@@ -1,8 +1,9 @@
 package com.shifat.smarthallcatering.model
 
+import com.google.firebase.firestore.DocumentId
+
 data class Category(
-    val id: Int=0,
+    @DocumentId val id: String = "",
     val name: String,
-    val items: List<FoodItem> = emptyList(),
-   //  val provider: Provider
+    val providerId: String =""
 )

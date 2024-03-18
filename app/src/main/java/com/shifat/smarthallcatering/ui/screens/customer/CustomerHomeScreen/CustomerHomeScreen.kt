@@ -1,4 +1,4 @@
-package com.shifat.smarthallcatering.ui.screens.customer
+package com.shifat.smarthallcatering.ui.screens.customer.CustomerHomeScreen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -32,23 +32,26 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
-import com.shifat.smarthallcatering.data.DataSource
-import com.shifat.smarthallcatering.model.user.Customer
-import com.shifat.smarthallcatering.model.user.Provider
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import coil.compose.rememberAsyncImagePainter
+import com.shifat.smarthallcatering.model.user.User
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CustomerHomeScreen(
-    customer: Customer,
-    onHallSelectButton: (Int) -> Unit
+    customer: User,
+    onHallSelectButton: (String) -> Unit,
+    viewModel: CustomerHomeScreenViewModel = hiltViewModel()
     ) {
+
+    val providers = viewModel.providers.collectAsStateWithLifecycle(emptyList())
 
     Scaffold(
         contentColor = Color.White,
@@ -90,7 +93,7 @@ fun CustomerHomeScreen(
             ) {
 
                 Text(
-                    text = "Subscribed Providers",
+                    text = "Choose A Hall",
                     fontSize = 25.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color.DarkGray,
@@ -101,7 +104,7 @@ fun CustomerHomeScreen(
                 )
 
                 HallListCard(
-                    subscribedProviders = DataSource.providers,
+                    subscribedProviders = providers.value,
                     onHallSelectButton
                 )
             }
@@ -132,8 +135,8 @@ fun ThreeLineButton() {
 
 @Composable
 fun HallListCard(
-    subscribedProviders: List<Provider>,
-    onClick: (Int) -> Unit
+    subscribedProviders: List<User>,
+    onClick: (String) -> Unit
 ) {
     LazyColumn {
 
@@ -155,7 +158,7 @@ fun HallListCard(
             ) {
                 Box {
                     Image(
-                        painter = painterResource(id = provider.image),
+                        painter = rememberAsyncImagePainter(provider.imageUri),
                         contentDescription = null,
                         contentScale = ContentScale.Crop,
                         modifier = Modifier
@@ -190,5 +193,5 @@ fun HallListCard(
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun CustomerHomeScreenPreview(){
-    CustomerHomeScreen(DataSource.customer, onHallSelectButton = {})
+  //  CustomerHomeScreen(DataSource.customer, onHallSelectButton = {})
 }

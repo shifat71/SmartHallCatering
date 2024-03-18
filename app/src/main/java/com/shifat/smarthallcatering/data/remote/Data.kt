@@ -4,8 +4,6 @@ import com.shifat.smarthallcatering.data.DataSource
 import com.shifat.smarthallcatering.model.Category
 import com.shifat.smarthallcatering.model.FoodItem
 import com.shifat.smarthallcatering.model.Order
-import com.shifat.smarthallcatering.model.user.Customer
-import com.shifat.smarthallcatering.model.user.Provider
 
 fun findProviderById( providerId: Int ) : Provider {
     return DataSource.provider
